@@ -1,40 +1,19 @@
-import io
 import streamlit as st
 import numpy as np
 import pandas as pd
 import lifelines
 from lifelines import KaplanMeierFitter
 import matplotlib.pyplot as plt
-from PIL import Image
-from pathlib import Path
 # from streamlit_option_menu import option_menu
 
 st.set_page_config(
-    page_title="Overall Survival",
+    page_title="Comparison Survival",
     layout="wide"
 )
-with st.expander(
-    "Streamlit app for Survival Analysis", expanded=False
-):
-    st.write("This application allows you to view decay curves for customers.")
-    st.write("")
 
-st.sidebar.image(Image.open(Path(str(Path(__file__).parent.parent)) / f"references/bear.jpg"), use_column_width=True)
+st.sidebar.success("Select an option")
 
-cols_initial = st.columns((1, 1), gap='medium')
-
-with cols_initial[0]:
-    comparison_mode = st.toggle("Activate feature")
-
-with cols_initial[1]:
-    if comparison_mode:
-        column_choice = st.selectbox(
-    "Select column to compare?",
-    ("Gender", "SeniorCitizen", "Partner"))
-
-
-
-st.sidebar.success("Select an option above")
+st.title("Customer Survival Analysis")
 
 col = st.columns((4, 2), gap='medium')
 
